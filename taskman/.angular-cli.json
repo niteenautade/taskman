@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "../taskman-dist",
+      "outDir": "../static",
       "assets": [
         "assets",
         "favicon.ico"
