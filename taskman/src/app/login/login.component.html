@@ -1,0 +1,11 @@
+<form (ngSubmit)="loginSubmit(loginForm.value)" #loginForm="ngForm">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <input type="text" class="form-control marginLoginComponent" placeholder="Username" name="username" id="username" [(ngModel)]="modelUsername">
+          <input type="text" class="form-control marginLoginComponent" placeholder="Password" name="password" id="password" [(ngModel)]="modelPassword">
+          <button type="submit" class="btn btn-primary btn-block marginLoginComponent" style="cursor: pointer">Login</button>
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+</form>

@@ -1,4 +1,4 @@
-from rest_framework import status
+''' from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from taskapp.models import Task
@@ -20,4 +20,13 @@ def task_list(request):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) '''
+
+from taskapp.models import Task
+from taskapp.serializers import TaskSerializer
+from rest_framework import generics
+
+
+class TaskList(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer

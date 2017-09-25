@@ -3,5 +3,5 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.task_list),
+    url(r'^$', views.TaskList.as_view()),
 ]
