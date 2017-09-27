@@ -23,10 +23,14 @@ def task_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) '''
 
 from taskapp.models import Task
-from taskapp.serializers import TaskSerializer
+from taskapp.serializers import TaskSerializer,UserSerializer
 from rest_framework import generics
-
+from django.contrib.auth.models import User
 
 class TaskList(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

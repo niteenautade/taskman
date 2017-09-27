@@ -1,0 +1,24 @@
+<div>
+  <div style="background-color:#222222;color:aliceblue;width:100%;">
+    <h1 class="text-left" style="display:inline-block;padding-left:40px;">TaskMan</h1>
+    <div style="float:right;padding: 15px 10% 15px 0px;">
+      <span *ngIf="_global.getLocalStorageItem('token')" style="cursor: pointer" (click)="Logout()">Logout</span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+      <ul style="list-style:none;margin-top:10%;">
+        <li>
+          <a [routerLink]="['createtask']" routerLinkActive="activeLinkClass" class="a-color">Create A Task</a>
+        </li>
+        <li>
+          <a [routerLink]="['viewtask']" routerLinkActive="activeLinkClass" class="a-color">View Tasks</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-10" style="margin-top:3%;">
+      <router-outlet></router-outlet>
+    </div>
+</div>

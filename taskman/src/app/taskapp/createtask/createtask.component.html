@@ -1,0 +1,49 @@
+<h1 class="text-center">Create a Task</h1>
+<div>
+  <form (ngSubmit)="createTask(createTaskForm.value)" #createTaskForm="ngForm">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <div *ngIf="error;then errorTemplate"></div>
+          <ng-template #errorTemplate>
+            <p style="color:red">{{error}}</p>
+          </ng-template>
+          <div *ngIf="success;then successTemplate"></div>
+          <ng-template #successTemplate>
+            <p style="color:green">{{success}}</p>
+          </ng-template>
+        
+        <div class="form-group row">
+          <label for="taskTitle" class="col-2 col-form-label">Task Title</label>
+          <div class="col-9">
+            <input class="form-control" type="text" id="taskTitle" name="taskTitle" [(ngModel)]="modelTaskTitle" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="user" class="col-2 col-form-label">User</label>
+          <div class="col-9">
+              <select class="form-control" id="user" name="user" [(ngModel)]="modelUser" required>
+                  <option *ngFor="let user of usersData" [value]="user.id">{{user.username}}</option>
+                </select>
+          </div>
+        </div>
+
+          <div class="form-group row">
+            <label for="reminderTime" class="col-2 col-form-label">Reminder Time</label>
+            <div class="col-9">
+              <input class="form-control" type="datetime-local" id="reminderTime" name="reminderTime" [(ngModel)]="modelReminderTime" required>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="cursor:pointer;">Submit</button>
+          </div>
+
+      </div>
+      <div class="col-md-2"></div>
+      
+    </div>
+    
+  </form>
+</div>

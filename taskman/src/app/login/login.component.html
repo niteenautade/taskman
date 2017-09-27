@@ -1,11 +1,17 @@
-<form (ngSubmit)="loginSubmit(loginForm.value)" #loginForm="ngForm">
-  <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-          <input type="text" class="form-control marginLoginComponent" placeholder="Username" name="username" id="username" [(ngModel)]="modelUsername">
-          <input type="text" class="form-control marginLoginComponent" placeholder="Password" name="password" id="password" [(ngModel)]="modelPassword">
-          <button type="submit" class="btn btn-primary btn-block marginLoginComponent" style="cursor: pointer">Login</button>
+<div style="padding-top:5%;">
+    <form (ngSubmit)="loginSubmit(loginForm.value)" #loginForm="ngForm">
+      <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+              <div class="rounded" style="padding:30px;border-style: solid;border-width: 1px;">
+                  <h1 class="text-center">LOGIN</h1>
+                  <input type="text" class="form-control marginLoginComponent" placeholder="Username" name="username" id="username" [(ngModel)]="modelUsername">
+                  <input type="password" class="form-control marginLoginComponent" placeholder="Password" name="password" id="password" [(ngModel)]="modelPassword">
+                  <button type="submit" class="btn btn-primary btn-block marginLoginComponent" style="cursor: pointer">Login</button>
+                  <p style="color:red">{{loginError}}</p>
+              </div>
+          </div>
+          <div class="col-md-4"></div>
       </div>
-      <div class="col-md-4"></div>
-  </div>
-</form>
+    </form>
+</div>

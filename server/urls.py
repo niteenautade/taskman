@@ -24,8 +24,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^task/',include('taskapp.urls')),
+    url(r'^taskapp/',include('taskapp.urls')),
     url(r'^auth', obtain_jwt_token)
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)

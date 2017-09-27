@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';  
 import 'rxjs/add/operator/map';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import 'rxjs/add/operator/map';
 export class LoginComponent implements OnInit {
   modelUsername : string;
   modelPassword : string;
-  constructor(private _http : Http) { }
+  loginError : string;
+  constructor(public _http : Http,public router : Router) { }
 
   ngOnInit() {
   }
@@ -22,8 +24,10 @@ export class LoginComponent implements OnInit {
         console.log(res.json())
         let response = res.json();
         localStorage.setItem('token', response['token']);
+        this.router.navigate(['taskapp'])
       },
       (err)=>{
+        this.loginError = "Invalid Username/Password Combination. Try Again"
         console.log(err);
       }
     )

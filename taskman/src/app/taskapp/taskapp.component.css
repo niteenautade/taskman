@@ -1,0 +1,11 @@
+
+.a-color{
+    color:black;
+}
+.activeLinkClass{
+    font-weight:bold;
+    width:100%;
+}
+a{
+    text-decoration: none;
+}
