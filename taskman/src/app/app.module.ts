@@ -9,9 +9,12 @@ import { FormsModule }   from '@angular/forms';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TaskappComponent } from './taskapp/taskapp.component'
 import { CreatetaskComponent } from './taskapp/createtask/createtask.component'
-import { ViewtaskComponent } from './taskapp/viewtask/viewtask.component';
 import { AuthGuard } from './services/auth-guard/auth-guard.service';
 import { GlobalService } from './services/global/global.service';
+import { ViewalltasksComponent } from './taskapp/viewalltasks/viewalltasks.component';
+import { ViewusertaskComponent } from './taskapp/viewusertask/viewusertask.component';
+import { UserselectboxComponent } from './taskapp/components/userselectbox/userselectbox.component';
+import { SharedataService } from './services/sharedata/sharedata.service';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -23,7 +26,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 }
 
 const appRoutes : Routes = [
-  /* { path: '', redirectTo: '/login', pathMatch: 'full' }, */
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },  
 ];
 
@@ -31,7 +34,9 @@ const innerRoutes : Routes = [
   { path: 'taskapp', component: TaskappComponent,
     children: [
       { path: 'createtask', component: CreatetaskComponent },
-      { path: 'viewtask', component: ViewtaskComponent }
+      { path: 'viewalltasks', component: ViewalltasksComponent },
+      { path: 'viewusertask', component: ViewusertaskComponent },
+      { path: 'viewusertask/:id', component: ViewusertaskComponent }
     ]
   },
 ];
@@ -42,7 +47,9 @@ const innerRoutes : Routes = [
     LoginComponent,
     CreatetaskComponent,
     TaskappComponent,
-    ViewtaskComponent
+    ViewalltasksComponent,
+    ViewusertaskComponent,
+    UserselectboxComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,8 @@ const innerRoutes : Routes = [
     deps: [Http, RequestOptions]
   },
     AuthGuard,
-    GlobalService
+    GlobalService,
+    SharedataService
   ],
   bootstrap: [AppComponent]
 })

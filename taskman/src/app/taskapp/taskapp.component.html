@@ -8,17 +8,20 @@
 </div>
 
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <ul style="list-style:none;margin-top:10%;">
         <li>
           <a [routerLink]="['createtask']" routerLinkActive="activeLinkClass" class="a-color">Create A Task</a>
         </li>
         <li>
-          <a [routerLink]="['viewtask']" routerLinkActive="activeLinkClass" class="a-color">View Tasks</a>
+          <a [routerLink]="['viewalltasks']" routerLinkActive="activeLinkClass" class="a-color">View All Tasks</a>
+        </li>
+        <li>
+          <a [routerLink]="['viewusertask']" routerLinkActive="activeLinkClass" class="a-color">View a particular User's Tasks</a>
         </li>
       </ul>
     </div>
-    <div class="col-md-10" style="margin-top:3%;">
+    <div class="col-md-9" style="margin-top:3%;">
       <router-outlet></router-outlet>
     </div>
 </div>

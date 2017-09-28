@@ -11,3 +11,15 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ('id', 'taskTitle', 'user','reminderTime')
+
+class TaskDetailedSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    class Meta:
+        model = Task
+        fields = ('id', 'taskTitle', 'user','reminderTime')
+
+class TaskDetailedUserSpecificSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    class Meta:
+        model = Task
+        fields = ('id', 'taskTitle', 'user','reminderTime')

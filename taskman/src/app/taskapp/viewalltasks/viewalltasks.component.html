@@ -1,0 +1,36 @@
+<div>
+  <table class="table table-bordered table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Task Title
+        </th>
+        <th>
+          User
+        </th>
+        <th>
+          Reminder Time
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of data">
+        <td>
+          {{ task.id }}
+        </td>
+        <td>
+          {{ task.taskTitle }}
+        </td>
+        <td>
+          {{ task.user.username }}
+        </td>
+        <td>
+          {{ task.reminderTime }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

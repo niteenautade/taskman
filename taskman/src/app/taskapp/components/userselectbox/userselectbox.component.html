@@ -1,0 +1,8 @@
+<div class="form-group row">
+    <label for="user" class="col-2 col-form-label">User</label>
+    <div class="col-9">
+        <select class="form-control" id="user" name="user" [(ngModel)]="modelUser" required (click)=valueChanged()>
+          <option *ngFor="let user of usersData" [value]="user.id">{{user.username}}</option>
+        </select>
+    </div>
+  </div>
