@@ -14,7 +14,6 @@ import { GlobalService } from './services/global/global.service';
 import { ViewalltasksComponent } from './taskapp/viewalltasks/viewalltasks.component';
 import { ViewusertaskComponent } from './taskapp/viewusertask/viewusertask.component';
 import { UserselectboxComponent } from './taskapp/components/userselectbox/userselectbox.component';
-import { SharedataService } from './services/sharedata/sharedata.service';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -66,7 +65,6 @@ const innerRoutes : Routes = [
   },
     AuthGuard,
     GlobalService,
-    SharedataService
   ],
   bootstrap: [AppComponent]
 })

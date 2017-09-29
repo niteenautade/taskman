@@ -7,4 +7,6 @@ export class GlobalService {
   getLocalStorageItem(name){
     return localStorage.getItem(name);
   }
+
+  usersData : any;
 }

@@ -9,24 +9,19 @@ export class CreatetaskComponent implements OnInit {
   usersData : any;
   error : string;
   success : string;
+  modelUser : any;
   constructor(public authHttp : AuthHttp) {
-    this.authHttp.get('http://127.0.0.1:8000/taskapp/allUsers').subscribe(
-      (res)=>{
-        this.usersData = res.json()
-      },
-      (err)=>{
-        this.success = "";
-        this.error = "Users couldn't be fetched";
-      }
-    )
   }
 
   ngOnInit() {
   }
-
-  createTask(data){
-    console.log('making post request => ',data);
-    this.authHttp.post('http://127.0.0.1:8000/taskapp/tasks',data).subscribe(
+  changePicked(model){
+    this.modelUser = model;
+  }
+  createTask(formdata){
+    formdata['user'] = this.modelUser;
+    console.log('making post request => ',formdata);
+    this.authHttp.post('http://127.0.0.1:8000/taskapp/tasks',formdata).subscribe(
       (res)=>{
         console.log(res.json())
         this.error = "";

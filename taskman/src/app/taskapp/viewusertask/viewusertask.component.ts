@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
-import { SharedataService } from './../../services/sharedata/sharedata.service';
 @Component({
   selector: 'app-viewusertask',
   templateUrl: './viewusertask.component.html',
@@ -12,15 +11,17 @@ export class ViewusertaskComponent {
   sub :any;
   usersData : any;
   modelUser: any;
-  constructor(public authHttp : AuthHttp,public _SharedataService:SharedataService) { }
+  constructor(public authHttp : AuthHttp) { }
   changePicked(model){
     this.modelUser = model;
   }
   
   ngOnInit() {
   }
-  fetchTask(data){
-    let obj = { 'url': 'http://127.0.0.1:8000/taskapp/allTasksDetailed/', 'id': this.modelUser }
+  fetchTask(formdata){
+    console.log("making get request:",formdata)
+    formdata['user'] = this.modelUser;
+    let obj = { 'url': 'http://127.0.0.1:8000/taskapp/allTasksDetailed/', 'id': formdata }
     let url = obj.url + obj.id;
     this.authHttp.get(url).subscribe(
       (res) => {
