@@ -21,7 +21,7 @@ export class ViewusertaskComponent {
   fetchTask(formdata){
     console.log("making get request:",formdata)
     formdata['user'] = this.modelUser;
-    let obj = { 'url': 'http://127.0.0.1:8000/taskapp/allTasksDetailed/', 'id': formdata }
+    let obj = { 'url': 'http://127.0.0.1:8000/taskapp/allTasksDetailed/', 'id': formdata.user }
     let url = obj.url + obj.id;
     this.authHttp.get(url).subscribe(
       (res) => {
